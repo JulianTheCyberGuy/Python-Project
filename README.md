@@ -28,5 +28,5 @@
     <p>I've split the code into 3 main parts (Calc_Module - Main_Module - Utils_Module) I've done this to keep things organized and maintable when troubleshooting. You may also notice a Test_Calc File. I added this ensure that each function in my calculator works as attended. For this "stress test" file I used the unittest framework</p>
   <h3>User input Handlining</h3>
     <p>This Calculator can validate user input for both numbers and operation choices to prevent any unforseen crashes due to invalid data/input.</p>
-
-<p font="9px">It should be noted however, that this was completed in a short frame of time therefore it is most likely no where near perfect</p>
+<hr>
+<p>It should be noted however, that this was completed in a short frame of time therefore it is most likely no where near perfect</p>
