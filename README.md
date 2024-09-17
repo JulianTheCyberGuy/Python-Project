@@ -29,4 +29,4 @@
   <h3>User input Handlining</h3>
     <p>This Calculator can validate user input for both numbers and operation choices to prevent any unforseen crashes due to invalid data/input.</p>
 
-<p><small>It should be noted however, that this was completeled it a short frame of time therefore it is most likely no where near perfect</small></p>
+<p><small>It should be noted however, that this was completed in a short frame of time therefore it is most likely no where near perfect</small></p>
