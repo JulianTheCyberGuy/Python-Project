@@ -4,7 +4,7 @@
 <h2>Calculator Features</h2>
   <h3>Basic Operations</h3>
     <ul>
-      <li>Addtion</li>
+      <li>Addition</li>
       <li>Subtraction</li>
       <li>Multiplication</li>
       <li>Division</li>
