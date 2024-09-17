@@ -3,7 +3,7 @@
 <h2>Overview</h2>
   <p>This is a project meant to test my OOP knowledge</p>
 <h2>Calculator Features</h2>
-  <h3 margin-left="50px">Basic Operations</h3>
+  <h3>Basic Operations</h3>
     <ul>
       <li>Addtion</li>
       <li>Subtraction</li>
