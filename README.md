@@ -1,5 +1,4 @@
 <h1>Calculator Project</h1>
-<hr>
 <h2>Overview</h2>
   <p>This is a project meant to test my OOP knowledge</p>
 <h2>Calculator Features</h2>
