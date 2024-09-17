@@ -1,6 +1,6 @@
 <h1>Calculator Project</h1>
 <h2>Overview</h2>
-  <p>This is a project meant to test my OOP knowledge</p>
+  <p>This is a project meant to test my OOP (Object Oriented Programming) knowledge</p>
 <h2>Calculator Features</h2>
   <h3>Basic Operations</h3>
     <ul>
