@@ -93,10 +93,3 @@ project/
   Use the following command to run the test suite:
 </p>
 <pre><code>python -m unittest Test_Calc.py</code></pre>
-
-<h2>Future Improvements</h2>
-<ul>
-  <li>Add a <code>main.py</code> script to integrate the calculator logic with user interactions.</li>
-  <li>Expand the <code>Calculator</code> class to support more operations (e.g., trigonometric functions).</li>
-  <li>Create a GUI for better user experience.</li>
-</ul>
