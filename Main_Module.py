@@ -1,7 +1,7 @@
 # Main Entry Point
 
 from Calc_Module import Calculator  # Import the Calculator class
-import Utils_Module  # Utility module for helper functions (not provided)
+import Utils_Module  # Utility module for helper functions
 
 def main():
     """
