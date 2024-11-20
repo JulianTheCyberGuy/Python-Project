@@ -1,9 +1,14 @@
 # Main Entry Point
 
-from Calc_Module import Calculator
-import Utils_Module
+from Calc_Module import Calculator  # Import the Calculator class
+import Utils_Module  # Utility module for helper functions (not provided)
 
 def main():
+    """
+    Main function: Entry point of the program.
+    Demonstrates the usage of the Calculator class to perform various operations.
+    """
+
     invalid_input_count = 0  # Counter for invalid inputs
     
     try:
@@ -25,7 +30,7 @@ def main():
         # Reset invalid input counter for operations
         invalid_input_count = 0
         
-        # Create an instance of Calculator
+        # Create an instance of Calculator (object creation: key OOP concept)
         calc = Calculator(num1, num2)
 
         # Loop to get the correct operation choice
@@ -34,23 +39,23 @@ def main():
             try:
                 # Perform the selected operation
                 if choice == '1':
-                    print(f"Result: {calc.add()}")
+                    print(f"Result: {calc.add()}")  # Calls add method
                 elif choice == '2':
-                    print(f"Result: {calc.subtract()}")
+                    print(f"Result: {calc.subtract()}")  # Calls subtract method
                 elif choice == '3':
-                    print(f"Result: {calc.multiply()}")
+                    print(f"Result: {calc.multiply()}")  # Calls multiply method
                 elif choice == '4':
-                    print(f"Result: {calc.divide()}")
+                    print(f"Result: {calc.divide()}")  # Calls divide method
                 elif choice == '5':
-                    print(f"Result: {calc.exponentiate()}")
+                    print(f"Result: {calc.exponentiate()}")  # Calls exponentiate method
                 elif choice == '6':
-                    print(f"Result: {calc.modulo()}")
+                    print(f"Result: {calc.modulo()}")  # Calls modulo method
                 elif choice == '7':
                     which_num = Utils_Module.handle_square_root_input()
-                    print(f"Result: {calc.sqrt(which_num)}")
+                    print(f"Result: {calc.sqrt(which_num)}")  # Calls sqrt method
                 elif choice == '8':
                     which_num = Utils_Module.handle_factorial_input()
-                    print(f"Result: {calc.factorial(which_num)}")
+                    print(f"Result: {calc.factorial(which_num)}")  # Calls factorial method
                 else:
                     raise ValueError("Invalid operation choice.")
                 break  # If the operation choice is valid, break the loop
