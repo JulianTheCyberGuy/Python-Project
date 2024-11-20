@@ -84,7 +84,7 @@ project/
 
 <h3>1. Run the Calculator</h3>
 <p>
-  Execute the main script (assuming a <code>main.py</code> or equivalent is added later):
+  Execute the Main_Module.py
 </p>
 <pre><code>python main.py</code></pre>
 
