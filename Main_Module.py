@@ -1,74 +1,117 @@
-# Main Entry Point
+import tkinter as tk
+from tkinter import messagebox
+from Calc_Module import Calculator  # Make sure this module is accessible
 
-from Calc_Module import Calculator  # Import the Calculator class
-import Utils_Module  # Utility module for helper functions
+class CalculatorGUI:
+    def __init__(self, master):
+        self.master = master
+        master.title("Calculator")
 
-def main():
-    """
-    Main function: Entry point of the program.
-    Demonstrates the usage of the Calculator class to perform various operations.
-    """
+        # Entry fields for the two numbers
+        self.label1 = tk.Label(master, text="Number 1:")
+        self.label1.pack()
+        self.entry1 = tk.Entry(master)
+        self.entry1.pack()
 
-    invalid_input_count = 0  # Counter for invalid inputs
-    
-    try:
-        # Loop to get the correct inputs from the user
-        while invalid_input_count < 3:
+        self.label2 = tk.Label(master, text="Number 2:")
+        self.label2.pack()
+        self.entry2 = tk.Entry(master)
+        self.entry2.pack()
+
+        # Result label
+        self.result_label = tk.Label(master, text="Result:")
+        self.result_label.pack()
+        self.result = tk.Label(master, text="")
+        self.result.pack()
+
+        # Buttons for operations
+        self.add_button = tk.Button(master, text="Add", command=self.add)
+        self.add_button.pack()
+
+        self.subtract_button = tk.Button(master, text="Subtract", command=self.subtract)
+        self.subtract_button.pack()
+
+        self.multiply_button = tk.Button(master, text="Multiply", command=self.multiply)
+        self.multiply_button.pack()
+
+        self.divide_button = tk.Button(master, text="Divide", command=self.divide)
+        self.divide_button.pack()
+
+        self.exponentiate_button = tk.Button(master, text="Exponentiate", command=self.exponentiate)
+        self.exponentiate_button.pack()
+
+        self.modulo_button = tk.Button(master, text="Modulo", command=self.modulo)
+        self.modulo_button.pack()
+
+        self.sqrt_button = tk.Button(master, text="Square Root of Number 1", command=self.sqrt)
+        self.sqrt_button.pack()
+
+        self.factorial_button = tk.Button(master, text="Factorial of Number 1", command=self.factorial)
+        self.factorial_button.pack()
+
+    def get_values(self):
+        """Retrieve values from the entry fields and create a Calculator instance."""
+        try:
+            num1 = float(self.entry1.get())
+            num2 = float(self.entry2.get())
+            return Calculator(num1, num2)
+        except ValueError:
+            messagebox.showerror("Input error", "Please enter valid numbers.")
+            return None
+
+    def add(self):
+        calc = self.get_values()
+        if calc:
+            self.result.config(text=str(calc.add()))
+
+    def subtract(self):
+        calc = self.get_values()
+        if calc:
+            self.result.config(text=str(calc.subtract()))
+
+    def multiply(self):
+        calc = self.get_values()
+        if calc:
+            self.result.config(text=str(calc.multiply()))
+
+    def divide(self):
+        calc = self.get_values()
+        if calc:
             try:
-                # Get inputs for the calculator
-                num1 = Utils_Module.get_number_input("Enter the first number: ")
-                num2 = Utils_Module.get_number_input("Enter the second number: ")
-                break  # If inputs are valid, break the loop
+                self.result.config(text=str(calc.divide()))
             except ValueError:
-                invalid_input_count += 1
-                print(f"Invalid input. {3 - invalid_input_count} attempts left.")
-        
-        if invalid_input_count >= 3:
-            print("Stop Wasting My Time User")
-            return  # Exit the program after 3 failed attempts
+                messagebox.showerror("Math error", "Cannot divide by zero.")
 
-        # Reset invalid input counter for operations
-        invalid_input_count = 0
-        
-        # Create an instance of Calculator (object creation: key OOP concept)
-        calc = Calculator(num1, num2)
+    def exponentiate(self):
+        calc = self.get_values()
+        if calc:
+            self.result.config(text=str(calc.exponentiate()))
 
-        # Loop to get the correct operation choice
-        while invalid_input_count < 3:
-            choice = Utils_Module.get_operation_choice()
+    def modulo(self):
+        calc = self.get_values()
+        if calc:
             try:
-                # Perform the selected operation
-                if choice == '1':
-                    print(f"Result: {calc.add()}")  # Calls add method
-                elif choice == '2':
-                    print(f"Result: {calc.subtract()}")  # Calls subtract method
-                elif choice == '3':
-                    print(f"Result: {calc.multiply()}")  # Calls multiply method
-                elif choice == '4':
-                    print(f"Result: {calc.divide()}")  # Calls divide method
-                elif choice == '5':
-                    print(f"Result: {calc.exponentiate()}")  # Calls exponentiate method
-                elif choice == '6':
-                    print(f"Result: {calc.modulo()}")  # Calls modulo method
-                elif choice == '7':
-                    which_num = Utils_Module.handle_square_root_input()
-                    print(f"Result: {calc.sqrt(which_num)}")  # Calls sqrt method
-                elif choice == '8':
-                    which_num = Utils_Module.handle_factorial_input()
-                    print(f"Result: {calc.factorial(which_num)}")  # Calls factorial method
-                else:
-                    raise ValueError("Invalid operation choice.")
-                break  # If the operation choice is valid, break the loop
-            except ValueError as e:
-                invalid_input_count += 1
-                print(f"{e}. {3 - invalid_input_count} attempts left.")
-        
-        if invalid_input_count >= 3:
-            print("Stop Wasting My Time User")
+                self.result.config(text=str(calc.modulo()))
+            except ValueError:
+                messagebox.showerror("Math error", "Cannot perform modulo by zero.")
 
-    except Exception as e:
-        print(f"An unexpected error occurred: {e}")
+    def sqrt(self):
+        calc = self.get_values()
+        if calc:
+            try:
+                self.result.config(text=str(calc.sqrt(1)))  # Using 1 as a dummy argument
+            except ValueError:
+                messagebox.showerror("Math error", "Cannot take square root of a negative number.")
+
+    def factorial(self):
+        calc = self.get_values()
+        if calc:
+            try:
+                self.result.config(text=str(calc.factorial(1)))  # Using 1 as a dummy argument
+            except ValueError:
+                messagebox.showerror("Math error", "Factorial is not defined for negative numbers or non-integers.")
 
 if __name__ == "__main__":
-    main()
-
+    root = tk.Tk()
+    calculator_gui = CalculatorGUI(root)
+    root.mainloop()
