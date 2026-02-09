@@ -1,13 +1,12 @@
 import tkinter as tk
 from tkinter import messagebox
-from Calc_Module import Calculator  # Make sure this module is accessible
+from Calc_Module import Calculator
 
 class CalculatorGUI:
     def __init__(self, master):
         self.master = master
         master.title("Calculator")
 
-        # Entry fields for the two numbers
         self.label1 = tk.Label(master, text="Number 1:")
         self.label1.pack()
         self.entry1 = tk.Entry(master)
@@ -18,13 +17,11 @@ class CalculatorGUI:
         self.entry2 = tk.Entry(master)
         self.entry2.pack()
 
-        # Result label
         self.result_label = tk.Label(master, text="Result:")
         self.result_label.pack()
         self.result = tk.Label(master, text="")
         self.result.pack()
 
-        # Buttons for operations
         self.add_button = tk.Button(master, text="Add", command=self.add)
         self.add_button.pack()
 
@@ -43,14 +40,13 @@ class CalculatorGUI:
         self.modulo_button = tk.Button(master, text="Modulo", command=self.modulo)
         self.modulo_button.pack()
 
-        self.sqrt_button = tk.Button(master, text="Square Root of Number 1", command=self.sqrt)
+        self.sqrt_button = tk.Button(master, text="Square Root (Num 1)", command=self.sqrt)
         self.sqrt_button.pack()
 
-        self.factorial_button = tk.Button(master, text="Factorial of Number 1", command=self.factorial)
+        self.factorial_button = tk.Button(master, text="Factorial (Num 1)", command=self.factorial)
         self.factorial_button.pack()
 
     def get_values(self):
-        """Retrieve values from the entry fields and create a Calculator instance."""
         try:
             num1 = float(self.entry1.get())
             num2 = float(self.entry2.get())
@@ -79,8 +75,8 @@ class CalculatorGUI:
         if calc:
             try:
                 self.result.config(text=str(calc.divide()))
-            except ValueError:
-                messagebox.showerror("Math error", "Cannot divide by zero.")
+            except ValueError as e:
+                messagebox.showerror("Math error", str(e))
 
     def exponentiate(self):
         calc = self.get_values()
@@ -92,26 +88,26 @@ class CalculatorGUI:
         if calc:
             try:
                 self.result.config(text=str(calc.modulo()))
-            except ValueError:
-                messagebox.showerror("Math error", "Cannot perform modulo by zero.")
+            except ValueError as e:
+                messagebox.showerror("Math error", str(e))
 
     def sqrt(self):
         calc = self.get_values()
         if calc:
             try:
-                self.result.config(text=str(calc.sqrt(1)))  # Using 1 as a dummy argument
-            except ValueError:
-                messagebox.showerror("Math error", "Cannot take square root of a negative number.")
+                self.result.config(text=str(calc.sqrt_num1()))
+            except ValueError as e:
+                messagebox.showerror("Math error", str(e))
 
     def factorial(self):
         calc = self.get_values()
         if calc:
             try:
-                self.result.config(text=str(calc.factorial(1)))  # Using 1 as a dummy argument
-            except ValueError:
-                messagebox.showerror("Math error", "Factorial is not defined for negative numbers or non-integers.")
+                self.result.config(text=str(calc.factorial_num1()))
+            except ValueError as e:
+                messagebox.showerror("Math error", str(e))
 
 if __name__ == "__main__":
     root = tk.Tk()
-    calculator_gui = CalculatorGUI(root)
+    CalculatorGUI(root)
     root.mainloop()
