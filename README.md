@@ -86,7 +86,7 @@ project/
 <p>
   Execute the Main_Module.py
 </p>
-<pre><code>python main.py</code></pre>
+<pre><code>python Main_Module.py</code></pre>
 
 <h3>2. Run the Unit Tests</h3>
 <p>
